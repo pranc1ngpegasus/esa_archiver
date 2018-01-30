@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 require 'esa_archiver'
+require 'support/factory_bot'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
