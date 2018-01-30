@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Pegasus204"]
   spec.email         = ["ride.or.die.2215@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Archive the esa post that a fixed period of time passed.}
+  spec.description   = %q{Archive the esa post that a fixed period of time passed.}
+  spec.homepage      = "https://github.com/Pegasus204/esa_archiver"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
