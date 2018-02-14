@@ -5,8 +5,8 @@ require 'spec_helper'
 RSpec.describe EsaArchiver::UseCases::Archive do
   let(:esa_client) { double('esa client') }
   let(:category) { 'path/to/post' }
-  let(:monthes_ago) { '3' }
-  let(:year_month) { '2017-01' }
+  let(:days_ago) { '31' }
+  let(:expected_date) { '2017-03-01' }
   let(:posts) do
     build_list(:esa_post, 2)
   end
@@ -17,7 +17,7 @@ RSpec.describe EsaArchiver::UseCases::Archive do
     ]
   end
 
-  subject { described_class.new(esa_client).call(category, monthes_ago) }
+  subject { described_class.new(esa_client).call(category, days_ago) }
 
   before 'mock date today' do
     expect(Date).to receive(:today).and_return Date.new(2017, 4, 1)
@@ -38,7 +38,7 @@ RSpec.describe EsaArchiver::UseCases::Archive do
     include_context 'mock esa api', 1
     it do
       expect(esa_client).to receive(:find_expired_posts)
-        .with(category, year_month).once
+        .with(category, expected_date).once
         .and_return(posts)
       expect(subject).to eq(expected)
     end
