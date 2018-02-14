@@ -11,7 +11,7 @@ require 'esa_archiver/use_cases/archive'
 module EsaArchiver
   class << self
     def archive
-      UseCases::Archive.new(esa_client).call(ENV['ESA_ARCHIVE_CATEGORY'], ENV['ESA_ARCHIVE_ELAPSED_MONTH'])
+      UseCases::Archive.new(esa_client).call(ENV['ESA_ARCHIVE_CATEGORY'], ENV['ESA_ARCHIVE_ELAPSED_DAYS'])
     end
 
     private
