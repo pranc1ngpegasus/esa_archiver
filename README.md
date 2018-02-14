@@ -2,20 +2,18 @@
 
 [![CircleCI](https://circleci.com/gh/Pegasus204/esa_archiver.svg?style=svg)](https://circleci.com/gh/Pegasus204/esa_archiver)
 
-[esa.io](https://esa.io)�ō쐬���A�ŏI�X�V����������Ԃ��o�߂����L�����A�[�J�C�u����A�v���P�[�V�����ł��B
+[esa.io](https://esa.io)で作成し、最終更新日から一定期間が経過した記事をアーカイブするアプリケーションです。
 
 ## Features
 
-`.env`��`ESA_ARCHIVE_ELAPSED_MONTH`�ɁA�o�߂���������ݒ肷�邱�ƂŁA1�������ƂɋL�����A�[�J�C�u���邱�Ƃ��ł��܂��B
+`.env`の`ESA_ARCHIVE_ELAPSED_DAYS`に、経過した日数を設定することで、記事を自動でアーカイブすることができます。
 
-�o�߂��������ƁA�A�[�J�C�u�����L���̍ŏI�X�V���̊֌W�͈ȉ��̕\�̂悤�ɂȂ�܂��B
-(��ł�2018�N01���𓖌��Ƃ���B)
+経過した月数と、アーカイブされる記事の最終更新月の関係は以下の表のようになります。 (例では2018年04月01日を当日とする。)
 
-| �o�߂������� | �A�[�J�C�u�����L���̍ŏI�X�V�� |
-|:--:|:--:|
-| 0 | 2018�N01�� |
-| 1 | 2017�N12�� |
-| 2 | 2017�N11�� |
+|経過した月数|アーカイブされる記事の作成日|
+|:---:|:---:|
+|31|2018年3月1日|
+|60|2018年1月31日|
 
 ## How to Run
 ### Run locally
@@ -27,14 +25,15 @@ $ cp .env.sample .env
 $ vi .env
 // setup environment variable
 ```
-�Ń��[�J�����\�z���s���Ă��������B
 
-`bundle exec thor posts:archive`�����s���邱�ƂŋL�����A�[�J�C�u����܂��B
+でローカル環境構築を行ってください。
 
-�������s�����悤��cron��ݒ肷�邱�ƂŁA�w�肵�������o�߂����L���������A�[�J�C�u���邱�Ƃ��ł��܂��B
+`bundle exec thor posts:archive`を実行することで記事がアーカイブされます。
+
+毎日実行されるように設定することで、指定した日数経過した記事を自動アーカイブすることができます。
 
 ## Test
 ```
 $ bundle exec rspec
 ```
-�Ńe�X�g�����s�ł��܂��B
+でテストを実行できます。
