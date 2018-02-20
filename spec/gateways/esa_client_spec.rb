@@ -20,7 +20,7 @@ RSpec.describe EsaArchiver::Gateways::EsaClient do
     subject { target.find_expired_posts('path/to/post', '2018-01') }
 
     it 'return posts' do
-      allow(driver).to receive(:posts).with(q: 'category:path/to/post kind:flow -in:Archived created:<2018-01')
+      allow(driver).to receive(:posts).with(q: 'category:path/to/post kind:flow -in:Archived created:<2018-01', per_page: 75)
                                       .and_return(response)
       expect(subject).to eq([post])
     end

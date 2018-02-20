@@ -10,7 +10,7 @@ module EsaArchiver
       end
 
       def find_expired_posts(category, date)
-        response = driver.posts(q: "category:#{category} kind:flow -in:Archived created:<#{date}")
+        response = driver.posts(q: "category:#{category} kind:flow -in:Archived created:<#{date}", per_page: 75)
         to_posts(response.body)
       end
 
