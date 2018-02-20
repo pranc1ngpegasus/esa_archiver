@@ -11,7 +11,8 @@ RSpec.describe EsaArchiver::Gateways::EsaClient do
     let(:body) do
       { 'posts' => [
         'number' => post.number,
-        'category' => post.category
+        'category' => post.category,
+        'message' => 'esa_archiver[skip notice]'
       ] }
     end
     let(:response) { double('response', body: body) }
@@ -29,7 +30,8 @@ RSpec.describe EsaArchiver::Gateways::EsaClient do
     let(:post) { build(:esa_post) }
     let(:body) do
       { 'number' => post.number,
-        'category' => post.category }
+        'category' => post.category,
+        'message' => 'esa_archiver[skip notice]' }
     end
     let(:response) { double('response', body: body) }
 
@@ -37,7 +39,7 @@ RSpec.describe EsaArchiver::Gateways::EsaClient do
 
     it 'return updated post' do
       allow(driver).to receive(:update_post)
-        .with(post.number, category: post.category, updated_by: 'bot_user')
+        .with(post.number, category: post.category, message: 'esa_archiver[skip notice]', updated_by: 'bot_user')
         .and_return(response)
       expect(subject).to eq(post)
     end

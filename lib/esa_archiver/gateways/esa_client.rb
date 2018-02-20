@@ -16,7 +16,7 @@ module EsaArchiver
 
       def update_post(post, user)
         response = driver.update_post(
-          post.number, category: post.category, updated_by: user
+          post.number, category: post.category, message: ENV['ESA_ARCHIVE_MESSAGE'], updated_by: user
         )
         to_post(response.body)
       end
@@ -32,7 +32,8 @@ module EsaArchiver
       def to_post(raw)
         Entities::EsaPost.new(
           raw['number'],
-          raw['category']
+          raw['category'],
+          raw['message']
         )
       end
     end

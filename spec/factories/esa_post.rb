@@ -4,5 +4,6 @@ FactoryBot.define do
   factory :esa_post, class: EsaArchiver::Entities::EsaPost do
     sequence :number
     category { 'path/to/post' }
+    message 'esa_archiver[skip notice]'
   end
 end
