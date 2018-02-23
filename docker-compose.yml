@@ -1,0 +1,7 @@
+version: "2"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/src
+    command: bash -c 'bundle install && bundle exec thor posts:archive'
