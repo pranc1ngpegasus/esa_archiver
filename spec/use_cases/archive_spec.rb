@@ -28,7 +28,7 @@ RSpec.describe EsaArchiver::UseCases::Archive do
       expect(esa_client).to receive(:update_post)
         .with(
           have_attributes(number: posts[post_no].number,
-                          category: 'Archived/path/to/post'), 'esa_bot'
+                          category: 'Archived/path/to/post'), 'user1'
         ).and_return(posts[post_no])
     end
   end
