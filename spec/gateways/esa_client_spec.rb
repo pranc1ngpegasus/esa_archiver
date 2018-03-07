@@ -12,7 +12,8 @@ RSpec.describe EsaArchiver::Gateways::EsaClient do
       { 'posts' => [
         'number' => post.number,
         'category' => post.category,
-        'message' => 'esa_archiver[skip notice]'
+        'message' => post.message,
+        'created_by' => { 'screen_name' => post.created_by }
       ] }
     end
     let(:response) { double('response', body: body) }
@@ -31,15 +32,17 @@ RSpec.describe EsaArchiver::Gateways::EsaClient do
     let(:body) do
       { 'number' => post.number,
         'category' => post.category,
-        'message' => 'esa_archiver[skip notice]' }
+        'message' => post.message,
+        'created_by' => { 'screen_name' => post.created_by }
+      }
     end
     let(:response) { double('response', body: body) }
 
-    subject { target.update_post(post, 'bot_user') }
+    subject { target.update_post(post, 'user1') }
 
     it 'return updated post' do
       allow(driver).to receive(:update_post)
-        .with(post.number, category: post.category, message: 'esa_archiver[skip notice]', updated_by: 'bot_user')
+        .with(post.number, category: post.category, message: post.message, updated_by: post.created_by)
         .and_return(response)
       expect(subject).to eq(post)
     end

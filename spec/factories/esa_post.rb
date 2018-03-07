@@ -5,5 +5,6 @@ FactoryBot.define do
     sequence :number
     category { 'path/to/post' }
     message 'esa_archiver[skip notice]'
+    created_by 'user1'
   end
 end
