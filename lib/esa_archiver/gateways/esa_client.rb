@@ -33,7 +33,8 @@ module EsaArchiver
         Entities::EsaPost.new(
           raw['number'],
           raw['category'],
-          raw['message']
+          raw['message'],
+          raw['created_by']['screen_name']
         )
       end
     end
