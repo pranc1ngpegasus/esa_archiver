@@ -33,8 +33,7 @@ RSpec.describe EsaArchiver::Gateways::EsaClient do
       { 'number' => post.number,
         'category' => post.category,
         'message' => post.message,
-        'created_by' => { 'screen_name' => post.created_by }
-      }
+        'created_by' => { 'screen_name' => post.created_by } }
     end
     let(:response) { double('response', body: body) }
 
