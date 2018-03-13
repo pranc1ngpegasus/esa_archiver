@@ -1,11 +1,21 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require 'dotenv/load'
+require 'esa'
+
 require 'bundler/setup'
 require 'esa_archiver'
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
+
+def client
+  @client ||= Esa::Client.new(
+    access_token: ENV['ESA_OWNER_API_TOKEN'],
+    current_team: ENV['ESA_TEAM']
+  )
+end
 
 require 'pry'
 Pry.start
