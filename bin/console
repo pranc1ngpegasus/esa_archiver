@@ -11,7 +11,7 @@ require 'esa_archiver'
 # with your gem easier. You can also use a different console, if you like.
 
 def client
-  driver = Esa::Client.new(
+  @client ||= Esa::Client.new(
     access_token: ENV['ESA_OWNER_API_TOKEN'],
     current_team: ENV['ESA_TEAM']
   )
