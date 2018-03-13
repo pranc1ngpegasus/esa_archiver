@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
 require 'esa'
+require 'logger'
 
 module EsaArchiver
   module Gateways
@@ -18,12 +20,28 @@ module EsaArchiver
         response = driver.update_post(
           post.number, category: post.category, message: ENV['ESA_ARCHIVE_MESSAGE'], updated_by: user
         )
-        to_post(response.body)
+
+        # archive post as esa_bot if post creator is not in your team
+        if no_error?(response)
+          to_post(response.body)
+        else
+          logger.error "Post No.#{post.number} has error received #{response.body}"
+          logger.error 'Retry archiving post as esa_bot'
+          update_post(post, 'esa_bot')
+        end
       end
 
       private
 
       attr_reader :driver
+
+      def logger
+        @logger ||= Logger.new(STDOUT)
+      end
+
+      def no_error?(response)
+        response.body['error'].nil?
+      end
 
       def to_posts(body)
         body['posts'].map { |raw| to_post(raw) }
