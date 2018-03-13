@@ -1,7 +1,12 @@
-version: "2"
+version: "3"
 services:
   app:
     build: .
     volumes:
-      - .:/src
+      - .:/app
+      - bundle-data:/usr/local/bundle/
     command: bash -c 'bundle install && bundle exec thor posts:archive'
+
+volumes:
+  bundle-data:
+    driver: local
