@@ -25,8 +25,8 @@ module EsaArchiver
         if no_error?(response)
           to_post(response.body)
         else
-          logger.error "Post No.#{post.number} has error received #{response.body}"
-          logger.error 'Retry archiving post as esa_bot'
+          logger.info "Post No.#{post.number} has error received #{response.body}"
+          logger.info 'Retry archiving post as esa_bot'
           update_post(post, 'esa_bot')
         end
       end
