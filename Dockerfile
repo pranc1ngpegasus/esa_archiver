@@ -1,4 +1,4 @@
-FROM ruby:2.5.0
+FROM ruby:2.5.3
 MAINTAINER Temma Fukaya <ride.or.die.2215@gmail.com>
 USER root
 WORKDIR /app
