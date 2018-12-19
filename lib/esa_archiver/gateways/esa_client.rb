@@ -18,7 +18,7 @@ module EsaArchiver
 
       def update_post(post, user)
         response = driver.update_post(
-          post.number, category: post.category, message: ENV['ESA_ARCHIVE_MESSAGE'], updated_by: user
+          post.number, category: post.category, message: message, updated_by: user
         )
 
         # archive post as esa_bot if post creator is not in your team
@@ -34,6 +34,10 @@ module EsaArchiver
       private
 
       attr_reader :driver
+
+      def message
+        ENV['ESA_ARCHIVE_MESSAGE']
+      end
 
       def logger
         @logger ||= Logger.new(STDOUT)
