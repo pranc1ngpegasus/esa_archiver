@@ -26,7 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'dotenv'
   spec.add_runtime_dependency 'esa'
   spec.add_runtime_dependency 'thor'
-  spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'factory_bot'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake', '~> 12.3'
