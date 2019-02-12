@@ -47,4 +47,4 @@ jobs:
   test-ruby26:
     <<: *test-body
     docker:
-      - image: circleci/ruby:2.6.0
+      - image: circleci/ruby:2.6.1
