@@ -37,14 +37,14 @@ jobs:
   test-ruby24:
     <<: *test-body
     docker:
-      - image: circleci/ruby:2.4.5
+      - image: circleci/ruby:2.4.6
 
   test-ruby25:
     <<: *test-body
     docker:
-      - image: circleci/ruby:2.5.3
+      - image: circleci/ruby:2.5.5
 
   test-ruby26:
     <<: *test-body
     docker:
-      - image: circleci/ruby:2.6.1
+      - image: circleci/ruby:2.6.3

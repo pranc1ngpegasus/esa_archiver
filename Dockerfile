@@ -1,4 +1,4 @@
-FROM ruby:2.6.1-stretch
+FROM ruby:2.6.3-stretch
 MAINTAINER Temma Fukaya <ride.or.die.2215@gmail.com>
 USER root
 WORKDIR /app
