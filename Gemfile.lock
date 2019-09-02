@@ -41,7 +41,7 @@ GEM
     mime-types-data (3.2018.0812)
     minitest (5.11.3)
     multi_xml (0.6.0)
-    multipart-post (2.0.0)
+    multipart-post (2.1.1)
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
