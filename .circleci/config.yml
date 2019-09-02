@@ -64,10 +64,6 @@ workflows:
   test:
     jobs:
       - test:
-          name: "test-ruby24"
-          ruby-version: "2.4.7"
-
-      - test:
           name: "test-ruby25"
           ruby-version: "2.5.6"
 
