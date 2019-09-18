@@ -1,0 +1,30 @@
+name: CI
+on: [push]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: [ '2.5.x', '2.6.x' ]
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Set up Ruby version
+      uses: actions/setup-ruby@master
+      with:
+        ruby-version: ${{ matrix.ruby }}
+
+    - name: Install bundler
+      run: gem install bundler
+
+    - name: Bundle install
+      run: bundle install --jobs 4 --retry 3
+
+    - name: Rubocop
+      run: bundle exec rubocop
+
+    - name: RSpec
+      run: bundle exec rspec
