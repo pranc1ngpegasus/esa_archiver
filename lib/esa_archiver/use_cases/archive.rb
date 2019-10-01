@@ -21,7 +21,7 @@ module EsaArchiver
 
       def days_ago(day)
         date = Date.today - day.to_i
-        "#{date.year}-#{format('%02d', date.month)}-#{format('%02d', date.day)}"
+        "#{date.year}-#{date.month.to_s.rjust(2, '0')}-#{date.day.to_s.rjust(2, '0')}"
       end
     end
   end
