@@ -27,7 +27,7 @@ GEM
       faraday_middleware
       mime-types (>= 2.6)
       multi_xml (>= 0.5.5)
-    factory_bot (5.1.0)
+    factory_bot (5.1.1)
       activesupport (>= 4.2.0)
     faraday (0.16.2)
       multipart-post (>= 1.2, < 3)
