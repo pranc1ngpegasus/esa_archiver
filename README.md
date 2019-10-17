@@ -1,6 +1,6 @@
 # EsaArchiver
 
-![](https://github.com/Pegasus204/esa_archiver/workflows/CI/badge.svg)
+[![CircleCI](https://circleci.com/gh/Pegasus204/esa_archiver.svg?style=svg)](https://circleci.com/gh/Pegasus204/esa_archiver)
 
 [esa.io](https://esa.io)で作成し、最終更新日から一定期間が経過した記事をアーカイブするアプリケーションです。
 
