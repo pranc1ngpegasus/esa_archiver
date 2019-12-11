@@ -75,3 +75,7 @@ workflows:
       - test:
           name: "test-ruby26"
           ruby-version: "2.6.5"
+
+      - test:
+          name: "test-ruby27"
+          ruby-version: "2.7.0-preview1"
