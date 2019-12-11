@@ -70,8 +70,8 @@ workflows:
     jobs:
       - test:
           name: "test-ruby25"
-          ruby-version: "2.5.6"
+          ruby-version: "2.5.7"
 
       - test:
           name: "test-ruby26"
-          ruby-version: "2.6.4"
+          ruby-version: "2.6.5"
