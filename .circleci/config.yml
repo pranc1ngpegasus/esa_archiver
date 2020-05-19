@@ -69,13 +69,6 @@ workflows:
   test:
     jobs:
       - test:
-          name: "test-ruby25"
-          ruby-version: "2.5.7"
-
-      - test:
-          name: "test-ruby26"
-          ruby-version: "2.6.5"
-
-      - test:
-          name: "test-ruby27"
-          ruby-version: "2.7.1"
+          matrix:
+            parameters:
+              ruby-version: ["2.5.7", "2.6.5", "2.7.1"]
