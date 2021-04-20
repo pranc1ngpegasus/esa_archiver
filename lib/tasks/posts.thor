@@ -7,7 +7,7 @@ class Posts < Thor
   desc 'archive', 'archive posts specified monthes ago'
 
   def archive
-    logger = Logger.new(STDOUT)
+    logger = Logger.new($stdout)
     logger.info('archive task start')
     begin
       logger.info(EsaArchiver.archive)

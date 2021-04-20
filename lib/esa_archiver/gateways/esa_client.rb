@@ -40,7 +40,7 @@ module EsaArchiver
       end
 
       def logger
-        @logger ||= Logger.new(STDOUT)
+        @logger ||= Logger.new($stdout)
       end
 
       def no_error?(response)
